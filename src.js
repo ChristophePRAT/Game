@@ -1,3 +1,15 @@
+function message(title,msg) {
+  $('#msgT').html(title)
+  $('#msgM').html(msg)
+}
+setInterval(() => {
+  var R = []
+  for (var i = 0; i < 30; i++) {
+    R.push(Math.floor(Math.random()*9))
+  }
+  $(".main-header h1").html(R)
+}, 400);
+message("Hey","helllllllooo")
 var which = false
 var map = {
   cols: 12,

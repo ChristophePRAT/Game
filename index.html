@@ -3,25 +3,31 @@
 <head>
     <title>Tilemaps examples - Collisions</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" type="text/css">
-
     <script src="common.js"></script>
-    <script src="src.js"></script>
 </head>
 <body>
-
 <header class="main-header">
-    <h1><a href="index.html">Tilemaps examples</a></h1>
+    <h1>Tilemaps examples</h1>
     <p>Collisions <br>Use arrow keys to move</p>
 </header>
 
 <div class="main-wrapper">
     <canvas id="demo" width="512" height="512"></canvas>
-
-    <footer class="main-footer">
-        <p>Source code on <a href="https://github.com/mozdevs/gamedev-js-tiles" target="_top">the Github repository</a>.</p>
-    </footer>
+    <div id="displayInfo">
+        <h1 id="msgT">Hi</h1>
+        <p id="msgM">Helllllllllooooo</p>
+      </div>
+      
+    
 </div><!-- main wrapper -->
-
+<footer class="main-footer">
+    <p>Source code on <a href="https://github.com/mozdevs/gamedev-js-tiles" target="_top">the Github repository</a>.</p>
+</footer>
+<p id="pi"></p>
 </body>
+<script src="src.js"></script>
+
 </html>
