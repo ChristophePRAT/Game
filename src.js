@@ -2,13 +2,33 @@ function message(title,msg) {
   $('#msgT').html(title)
   $('#msgM').html(msg)
 }
-setInterval(() => {
-  var R = []
-  for (var i = 0; i < 30; i++) {
-    R.push(Math.floor(Math.random()*9))
-  }
-  $(".main-header h1").html(R)
-}, 400);
+// setInterval(() => {
+//   var R = []
+//   for (var i = 0; i < 30; i++) {
+//     R.push(Math.floor(Math.random()*9))
+//   }
+//   $(".main-header h1").html(R)
+// }, 400);
+var interVal = setInterval(() => {
+    if ($("#title").css("marginLeft") == "0px") {
+        $('.adio').html('<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe><audio id="player" autoplay loop><source src="MLoop.wav" type="audio/wav"></audio>');
+        clearInterval(interVal)
+    }
+}, 100);
+function timer(milisecs, refreshRate, callback) {
+    var i = 0
+    var t = setInterval(() => {
+        i+=1;
+        callback()
+        if (i == milisecs) {
+            clearInterval(t)
+        }    
+    },refreshRate)
+    
+}
+//  $('#title').css('right',"100px")
+
+$(".main-header").animate({width:'100%'},350);
 message("Hey","helllllllooo")
 var which = false
 var map = {
@@ -213,9 +233,9 @@ Hero.prototype._collide = function (dirx, diry) {
       3, 3, 3, 1, 1, 2, 3, 3, 3, 3, 3, 3
   ], [
       4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4,
-      4, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 4,
-      4, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 4,
-      4, 0, 0, 0, 5, 5, 0, 0, 0, 5, 0, 4,
+      4, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 4,
+      4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4,
+      4, 0, 0, 0, 0, 5, 0, 0, 0, 5, 0, 4,
       4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4,
       4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4,
       4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4,
