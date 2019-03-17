@@ -2,6 +2,13 @@ function message(title,msg) {
   $('#msgT').html(title)
   $('#msgM').html(msg)
 }
+$(document).ready(function () {
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
+});
 // setInterval(() => {
 //   var R = []
 //   for (var i = 0; i < 30; i++) {
@@ -9,12 +16,21 @@ function message(title,msg) {
 //   }
 //   $(".main-header h1").html(R)
 // }, 400);
-var interVal = setInterval(() => {
-    if ($("#title").css("marginLeft") == "0px") {
-        $('.adio').html('<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe><audio id="player" autoplay loop><source src="MLoop.wav" type="audio/wav"></audio>');
-        clearInterval(interVal)
+        $('.adio').html('<iframe src="silence.wav" allow="autoplay" id="audio" style="display:none"></iframe><audio id="player" src="MLoop.wav" typer="audio/wav" autoplay loop></audio>');
+
+var Voluem = true
+$("#music").click(() => {
+    if (Voluem) {
+        document.getElementById("music").innerHTML = 'volume :<img src="mute.svg" alt="mute">'
+        Voluem = false;
+        document.getElementById("player").pause();
+    } else {
+        document.getElementById("music").innerHTML = 'volume :<img src="volumeOn.svg" alt="Volume On">'
+        Voluem = true;
+        document.getElementById("player").play();
     }
-}, 100);
+    
+});
 function timer(milisecs, refreshRate, callback) {
     var i = 0
     var t = setInterval(() => {

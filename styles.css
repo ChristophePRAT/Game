@@ -23,8 +23,6 @@ a:hover, a:visited {
 }
 
 .main-wrapper {
-  padding-left: 1em;
-  padding-right: 1em;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -44,29 +42,35 @@ a:hover, a:visited {
 }
 
 @keyframes right_to_left {
-  from {
+  0% {
     margin-left: 100%;
   }
-  to {
+  80% {
+    margin-left: -20%;
+  }
+  100% {
     margin-left: 0;
   }
 }
 @keyframes left_to_right {
-  from {
+  0% {
     margin-left: -100%;
   }
-  to {
+  80% {
+    margin-left: 20%;
+  }
+  100% {
     margin-left: 0;
   }
 }
 .main-header {
   margin-top: 0;
-  margin-bottom: 2em;
+  margin-bottom: 0;
   background: #31ffd5;
 }
 .main-header h1 {
   margin: 0;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   font-family: BTTF, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-transform: uppercase;
   white-space: nowrap;
@@ -115,20 +119,107 @@ li {
   width: 350px;
   padding: 30px;
   margin: auto;
+}
+
+a {
   transition: 0.3s ease;
-}
-.main-footer a:hover {
-  background-position: -100% 0;
-}
-.main-footer a {
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #31ffd5 50%);
   background-size: 200%;
   display: inline;
   transition: 0.4s ease-in-out;
 }
-.main-footer a a {
+a:hover {
+  background-position: -100% 0;
+}
+a a {
   color: white;
   text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  position: absolute;
+  align-items: stretch;
+}
+.wrapper a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.wrapper a:hover, .wrapper a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.wrapper a[aria-expanded=true] {
+  color: #fff;
+  background: #177e69;
+}
+.wrapper ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #177e69;
+}
+.wrapper #sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+.wrapper #sidebar.active {
+  margin-left: -250px;
+}
+.wrapper #sidebarCollapse {
+  margin: 0;
+  padding: 0;
+}
+.wrapper a[data-toggle=collapse] {
+  position: relative;
+}
+.wrapper .dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  .wrapper #sidebar {
+    margin-left: -250px;
+  }
+  .wrapper #sidebar.active {
+    margin-left: 0;
+  }
+}
+.wrapper #sidebar {
+  /* don't forget to add all the previously mentioned styles here too */
+  background: #177e69;
+  color: #fff;
+  transition: all 0.3s;
+}
+.wrapper #sidebar .sidebar-header {
+  padding: 20px;
+  background: #177e69;
+}
+.wrapper #sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #177e69;
+}
+.wrapper #sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+.wrapper #sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+.wrapper #sidebar ul li a:hover {
+  color: #177e69;
+  background: #fff;
+}
+.wrapper #sidebar ul li.active > a {
+  color: #fff;
+  background: #177e69;
 }
 
 /*# sourceMappingURL=styles.css.map */

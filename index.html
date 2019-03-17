@@ -3,35 +3,97 @@
 <head>
     <title>Back To The Present</title>
     <meta charset="utf-8">
+    <!-- Links -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">    
+    <link href="dist/hamburgers.css" rel="stylesheet">
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="common.js"></script>
 </head>
 <body>
 <header class="main-header">
-    <h1 id="title"><span id="left">&#60; </span id="Stitle">Retour Vers Le PrÉsent<span></span><span id="right">&#62;</span></h1>
+    <h1 id="title">&#60; Retour Vers Le PrÉsent&#62;</h1>
 </header>
 <div class="adio"></div>
-<!-- <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-<audio id="player" autoplay>
-    <source src="back_to_the_future.mp3" type="audio/mp3">
-</audio> -->
-<div class="main-wrapper">
+    <div class="wrapper">
+                
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            
+            <div class="sidebar-header">
+                <h3>RÉGLAGES</h3>
+            </div>
+    
+            <ul class="list-unstyled components">
+                <li>
+                    <button id="music" class="btn btn-light">volume :<img src="volumeOn.svg" alt="Volume On"></button>
+                </li>
+                <li>
+                    <a href="#">à propos</a>
+                </li>
+                <li>
+                    <a href="#">contact</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+            
+                        
+                        <div class="hamburger hamburger--slider js-hamburger is-active" id="sidebarCollapse">
+                                <div class="hamburger-box">
+                                  <div class="hamburger-inner"></div>
+                                </div>
+                              </div>
+                        
+            
+                    </div>
+                </nav>
+            </div>
+    </div>
+
+ <div class="main-wrapper">    
+            
+        
     <canvas id="demo" width="512" height="512"></canvas>
     <div id="displayInfo">
         <h1 id="msgT">Hi</h1>
         <p id="msgM">Helllllllllooooo</p>
       </div>
-      
     
 </div><!-- main wrapper -->
 <footer class="main-footer">
+        <p id="pi"><a href="https://apple.com">Apple</a></p>
+
     <p>Source code on <a href="https://github.com/mozdevs/gamedev-js-tiles" target="_top">the Github repository</a>.</p>
 </footer>
-<p id="pi"></p>
 </body>
 <script src="src.js"></script>
-
+<script>
+        /**
+         * forEach implementation for Objects/NodeLists/Arrays, automatic type loops and context options
+         *
+         * @private
+         * @author Todd Motto
+         * @link https://github.com/toddmotto/foreach
+         * @param {Array|Object|NodeList} collection - Collection of items to iterate, could be an Array, Object or NodeList
+         * @callback requestCallback      callback   - Callback function for each iteration.
+         * @param {Array|Object|NodeList} scope=null - Object/NodeList/Array that forEach is iterating over, to use as the this value when executing callback.
+         * @returns {}
+         */
+          var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+      
+          var hamburgers = document.querySelectorAll(".hamburger");
+          if (hamburgers.length > 0) {
+            forEach(hamburgers, function(hamburger) {
+              hamburger.addEventListener("click", function() {
+                this.classList.toggle("is-active");
+              }, false);
+            });
+          }
+        </script>
+      
 </html>
